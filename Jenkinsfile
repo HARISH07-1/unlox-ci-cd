@@ -5,7 +5,7 @@ pipeline {
 
         stage('Clone Repository') {
             steps {
-                git 'YOUR_GITHUB_REPO_LINK'
+                git 'https://github.com/HARISH07-1/unlox-ci-cd.git'
             }
         }
 
