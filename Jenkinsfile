@@ -3,29 +3,24 @@ pipeline {
 
     stages {
 
-        stage('Clone Repository') {
-            steps {
-                git 'https://github.com/HARISH07-1/unlox-ci-cd.git'
-            }
-        }
-
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t ci-cd-app .'
+                bat 'docker build -t unlox-project .'
             }
         }
 
         stage('Stop Old Container') {
             steps {
-                sh 'docker stop myapp || true'
-                sh 'docker rm myapp || true'
+                bat 'docker stop unlox-cid || exit 0'
+                bat 'docker rm unlox-cid || exit 0'
             }
         }
 
         stage('Run New Container') {
             steps {
-                sh 'docker run -d -p 8080:80 --name myapp ci-cd-app'
+                bat 'docker run -d -p 8086:80 --name unlox-cid unlox-project'
             }
         }
     }
 }
+
